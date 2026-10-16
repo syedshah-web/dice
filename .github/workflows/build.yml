@@ -1,0 +1,52 @@
+name: build-and-test
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+env:
+  OMPI_ALLOW_RUN_AS_ROOT: 1
+  OMPI_ALLOW_RUN_AS_ROOT_CONFIRM: 1
+  OMPI_MCA_btl_vader_single_copy_mechanism: none
+  OMPI_MCA_rmaps_base_oversubscribe: 1
+  PRTE_MCA_rmaps_default_mapping_policy: ":oversubscribe"
+
+jobs:
+  ubuntu:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-22.04, ubuntu-24.04, ubuntu-24.04-arm]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: ./scripts/install_deps.sh
+      - name: Build
+        run: make info && make -j"$(nproc)"
+      - name: Small test suite
+        run: |
+          cd tests
+          MPICOMMAND="mpirun -np 2" ./runSmallTests.sh 2>&1 | tee small.log
+          ../scripts/check_tests.sh small.log
+
+  amazonlinux-2023:
+    runs-on: ubuntu-latest
+    container: amazonlinux:2023
+    steps:
+      - name: Install git/tar for checkout
+        run: dnf install -y git tar gzip
+      - uses: actions/checkout@v4
+      - name: Install dependencies (builds Boost from source)
+        run: ./scripts/install_deps.sh
+      - name: Build
+        run: |
+          export PATH=/usr/lib64/openmpi/bin:$PATH
+          make info BOOST=/opt/boost && make -j"$(nproc)" BOOST=/opt/boost
+      - name: Small test suite
+        run: |
+          export PATH=/usr/lib64/openmpi/bin:$PATH LD_LIBRARY_PATH=/usr/lib64/openmpi/lib
+          cd tests
+          MPICOMMAND="mpirun -np 2" ./runSmallTests.sh 2>&1 | tee small.log
+          ../scripts/check_tests.sh small.log
