@@ -20,7 +20,7 @@ jobs:
         os: [ubuntu-22.04, ubuntu-24.04, ubuntu-24.04-arm]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install dependencies
         run: ./scripts/install_deps.sh
       - name: Build
@@ -37,7 +37,7 @@ jobs:
     steps:
       - name: Install git/tar for checkout
         run: dnf install -y git tar gzip
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install dependencies (builds Boost from source)
         run: ./scripts/install_deps.sh
       - name: Build
