@@ -25,6 +25,14 @@ Linux machine available, so **you are the first to run this on real Linux hardwa
   ```
   Then look at `small.log` and each test's `output.dat`.
 
+**Shortcut:** CI run `38943797940` (commit 86d7a2b) prints the failing log lines as annotations,
+readable without auth. Check them before anything else:
+```bash
+curl -s https://api.github.com/repos/syedshah-web/dice/actions/runs/38943797940/jobs | python3 -c "import json,sys;[print(j['id'],j['name'],j['conclusion']) for j in json.load(sys.stdin)['jobs']]"
+curl -s "https://api.github.com/repos/syedshah-web/dice/check-runs/<job_id>/annotations?per_page=100"
+```
+(With `gh` authenticated, `gh run view 38943797940 --log-failed` gives the full logs.)
+
 **Things to know:**
 - The test scripts always exit 0. A pass/fail verdict comes only from `check_tests.sh` or from grepping
   `PASSED`/`FAILED`.
