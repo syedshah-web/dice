@@ -23,6 +23,15 @@ The build produces two binaries:
 - **global.h**: added a `fabs(std::complex<double>)` overload for the complex (SOC) build.
 - **Makefile**: rewritten to detect the OS, Eigen, Boost and OpenMP automatically. It now uses C++14
   (Eigen 3.4/5 needs it) and drops `-lrt` and the hard-coded paths.
+- **SHCI.cpp**: the final `std::system("rm -rf /dev/shm* ...")` is replaced by removing only Dice's own
+  shared-memory segments. On Linux the original deleted OpenMPI's segments before `MPI_Finalize`
+  (`unlink ... No such file or directory` on every run) and any other job's shared memory on the node.
+  It was a no-op on macOS, which has no `/dev/shm`.
+- **SHCIshm.cpp**: shared-memory segment names now use a suffix (time + pid) chosen by rank 0 and broadcast.
+  Before, each rank used its own `time(NULL)`. A rank that started in a different second opened a
+  different, empty segment, and two jobs started in the same second on one node shared segments.
+- **scripts/build_boost.sh**: the temp-dir cleanup uses `sudo` when the install did. It failed on a
+  non-root AMI because `sudo b2 install` leaves root-owned files in the build tree.
 - **tests/run*.sh**: `MPICOMMAND`, `PYTHON` and `HCIPATH` can be overridden from the environment.
 
 The full macOS porting log, with root-cause analysis, is in [docs/BUILD_REPORT_macOS.md](docs/BUILD_REPORT_macOS.md).
@@ -123,6 +132,8 @@ MPICOMMAND="mpirun -np 8" ./runTests.sh      2>&1 | tee full.log    # adds Cr2 a
 
 Reference result on a 14-core Apple M-series machine: full suite 20/20 PASSED
 ([docs/macos_fulltests.log](docs/macos_fulltests.log)).
+Amazon Linux 2023 on EC2 (x86_64, 64 vCPU, dnf OpenMPI 4.1 + Boost 1.86): small suite 14/14 PASSED with
+0 errors at `-np 2` and `-np 8` ([docs/aws_al2023_small.log](docs/aws_al2023_small.log)).
 
 ## License
 

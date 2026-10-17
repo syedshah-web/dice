@@ -574,7 +574,11 @@ int main(int argc, char* argv[]) {
   world.barrier();
 #endif
 
-  std::system("rm -rf /dev/shm* 2>/dev/null");
+  // Remove only Dice's own segments (the original "rm -rf /dev/shm*" also deleted
+  // OpenMPI's segments before MPI_Finalize and any other job's shared memory).
+  for (const std::string* name : {&shciint2, &shciint2shm, &shciHelper, &shciDetsCI,
+                                  &shciSortedDets, &shciDavidson, &shcicMax})
+    boost::interprocess::shared_memory_object::remove(name->c_str());
 
   return 0;
 }

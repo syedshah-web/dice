@@ -27,7 +27,7 @@ mkdir -p "$PREFIX" 2>/dev/null || true
 if [ ! -w "$PREFIX" ]; then SUDO="sudo"; $SUDO mkdir -p "$PREFIX"; fi
 
 work="$(mktemp -d)"
-trap 'rm -rf "$work"' EXIT
+trap '$SUDO rm -rf "$work"' EXIT  # b2 install under sudo leaves root-owned files
 cd "$work"
 
 # NB: the bintray URLs in the original Dice docs are dead; archives.boost.io is the live mirror.

@@ -8,6 +8,7 @@
 #include <boost/mpi.hpp>
 #include "mpi.h"
 #endif
+#include <unistd.h>
 
 using namespace std;
 
@@ -92,13 +93,21 @@ void initSHM() {
 #endif
 
   //set up shared memory files to store the integrals
-  shciint2 = "SHCIint2" + to_string(static_cast<long long>(time(NULL) % 1000000));
-  shciint2shm = "SHCIint2shm" + to_string(static_cast<long long>(time(NULL) % 1000000));
-  shciHelper = "SHCIhelpershm" + to_string(static_cast<long long>(time(NULL) % 1000000));
-  shciDetsCI = "SHCIDetsCIshm" + to_string(static_cast<long long>(time(NULL) % 1000000));
-  shciSortedDets = "SHCISortedDetsshm" + to_string(static_cast<long long>(time(NULL) % 1000000));
-  shciDavidson = "SHCIDavidsonshm" + to_string(static_cast<long long>(time(NULL) % 1000000));
-  shcicMax = "SHCIcMaxshm" + to_string(static_cast<long long>(time(NULL) % 1000000));
+  // The suffix comes from rank 0 so that all ranks open the same segments (per-rank
+  // time(NULL) differs if ranks start in different seconds); the pid keeps two jobs
+  // started in the same second on one node apart.
+  string suffix = to_string(static_cast<long long>(time(NULL) % 1000000)) + "_" +
+                  to_string(static_cast<long long>(getpid()));
+#ifndef SERIAL
+  boost::mpi::broadcast(world, suffix, 0);
+#endif
+  shciint2 = "SHCIint2" + suffix;
+  shciint2shm = "SHCIint2shm" + suffix;
+  shciHelper = "SHCIhelpershm" + suffix;
+  shciDetsCI = "SHCIDetsCIshm" + suffix;
+  shciSortedDets = "SHCISortedDetsshm" + suffix;
+  shciDavidson = "SHCIDavidsonshm" + suffix;
+  shcicMax = "SHCIcMaxshm" + suffix;
   int2Segment = boost::interprocess::shared_memory_object(boost::interprocess::open_or_create, shciint2.c_str(), boost::interprocess::read_write);
   int2SHMSegment = boost::interprocess::shared_memory_object(boost::interprocess::open_or_create, shciint2shm.c_str(), boost::interprocess::read_write);
   hHelpersSegment = boost::interprocess::shared_memory_object(boost::interprocess::open_or_create, shciHelper.c_str(), boost::interprocess::read_write);

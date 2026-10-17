@@ -23,6 +23,9 @@ when this file was written. It may be a real runtime problem or a false positive
 
 ## Task 1: Reproduce and fix the Linux test failure (highest priority)
 
+> **Status 2026-10-17: fixed** (see [docs/SESSION_REPORT_2026-10-17_AWS.md](docs/SESSION_REPORT_2026-10-17_AWS.md)).
+> Cause: `SHCI.cpp` ran `rm -rf /dev/shm*` before `MPI_Finalize`. All 14 energy/RDM checks already passed.
+
 On an EC2 instance (Ubuntu 22.04/24.04 is quickest):
 
 ```bash

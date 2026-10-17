@@ -1,0 +1,183 @@
+
+
+Running Tests for SHCI/SHCISCF
+======================================================
+...running o2_omp1_stoc
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  ip-172-31-45-76.us-west-2.compute.internal
+  System call: unlink(2) /dev/shm/vader_segment.ip-172-31-45-76.1003.6e810001.0
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[ip-172-31-45-76.us-west-2.compute.internal:2935382] 1 more process has sent help message help-opal-shmem-mmap.txt / sys call fail
+[ip-172-31-45-76.us-west-2.compute.internal:2935382] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+	 PASSED Energy Test....
+	 PASSED 2RDM....
+...running o2_omp1_det
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  ip-172-31-45-76.us-west-2.compute.internal
+  System call: unlink(2) /dev/shm/vader_segment.ip-172-31-45-76.1003.6ea30001.0
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[ip-172-31-45-76.us-west-2.compute.internal:2935412] 1 more process has sent help message help-opal-shmem-mmap.txt / sys call fail
+[ip-172-31-45-76.us-west-2.compute.internal:2935412] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+	 PASSED Energy Test....
+...running o2_omp1_det_trev
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  ip-172-31-45-76.us-west-2.compute.internal
+  System call: unlink(2) /dev/shm/vader_segment.ip-172-31-45-76.1003.6e5f0001.0
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[ip-172-31-45-76.us-west-2.compute.internal:2935432] 1 more process has sent help message help-opal-shmem-mmap.txt / sys call fail
+[ip-172-31-45-76.us-west-2.compute.internal:2935432] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+	 PASSED Energy Test....
+...running o2_omp1_det_trev_direct
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  ip-172-31-45-76.us-west-2.compute.internal
+  System call: unlink(2) /dev/shm/vader_segment.ip-172-31-45-76.1003.6e400001.1
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[ip-172-31-45-76.us-west-2.compute.internal:2935447] 1 more process has sent help message help-opal-shmem-mmap.txt / sys call fail
+[ip-172-31-45-76.us-west-2.compute.internal:2935447] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+	 PASSED Energy Test....
+...running o2_omp1_trev_direct
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  ip-172-31-45-76.us-west-2.compute.internal
+  System call: unlink(2) /dev/shm/vader_segment.ip-172-31-45-76.1003.6e670001.1
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[ip-172-31-45-76.us-west-2.compute.internal:2935472] 1 more process has sent help message help-opal-shmem-mmap.txt / sys call fail
+[ip-172-31-45-76.us-west-2.compute.internal:2935472] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+	 PASSED Energy Test....
+	 PASSED 2RDM....
+...running o2_omp1_det_direct
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  ip-172-31-45-76.us-west-2.compute.internal
+  System call: unlink(2) /dev/shm/vader_segment.ip-172-31-45-76.1003.6e170001.0
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[ip-172-31-45-76.us-west-2.compute.internal:2935488] 1 more process has sent help message help-opal-shmem-mmap.txt / sys call fail
+[ip-172-31-45-76.us-west-2.compute.internal:2935488] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+	 PASSED Energy Test....
+...running o2_omp4_det
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  ip-172-31-45-76.us-west-2.compute.internal
+  System call: unlink(2) /dev/shm/vader_segment.ip-172-31-45-76.1003.6e010001.0
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[ip-172-31-45-76.us-west-2.compute.internal:2935510] 1 more process has sent help message help-opal-shmem-mmap.txt / sys call fail
+[ip-172-31-45-76.us-west-2.compute.internal:2935510] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+	 PASSED Energy Test....
+...running o2_omp4_seed
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  ip-172-31-45-76.us-west-2.compute.internal
+  System call: unlink(2) /dev/shm/vader_segment.ip-172-31-45-76.1003.6e3c0001.0
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[ip-172-31-45-76.us-west-2.compute.internal:2935531] 1 more process has sent help message help-opal-shmem-mmap.txt / sys call fail
+[ip-172-31-45-76.us-west-2.compute.internal:2935531] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+	 PASSED Energy Test....
+	 PASSED 2RDM....
+...running restart test
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  ip-172-31-45-76.us-west-2.compute.internal
+  System call: unlink(2) /dev/shm/vader_segment.ip-172-31-45-76.1003.6fd60001.1
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[ip-172-31-45-76.us-west-2.compute.internal:2935553] 1 more process has sent help message help-opal-shmem-mmap.txt / sys call fail
+[ip-172-31-45-76.us-west-2.compute.internal:2935553] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  ip-172-31-45-76.us-west-2.compute.internal
+  System call: unlink(2) /dev/shm/vader_segment.ip-172-31-45-76.1003.6fd80001.1
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[ip-172-31-45-76.us-west-2.compute.internal:2935567] 1 more process has sent help message help-opal-shmem-mmap.txt / sys call fail
+[ip-172-31-45-76.us-west-2.compute.internal:2935567] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+	 PASSED Energy Test....
+...running restart test
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  ip-172-31-45-76.us-west-2.compute.internal
+  System call: unlink(2) /dev/shm/vader_segment.ip-172-31-45-76.1003.6f960001.1
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[ip-172-31-45-76.us-west-2.compute.internal:2935617] 1 more process has sent help message help-opal-shmem-mmap.txt / sys call fail
+[ip-172-31-45-76.us-west-2.compute.internal:2935617] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  ip-172-31-45-76.us-west-2.compute.internal
+  System call: unlink(2) /dev/shm/vader_segment.ip-172-31-45-76.1003.6f980001.1
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[ip-172-31-45-76.us-west-2.compute.internal:2935631] 1 more process has sent help message help-opal-shmem-mmap.txt / sys call fail
+[ip-172-31-45-76.us-west-2.compute.internal:2935631] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+	 PASSED Energy Test....
+...running full restart test
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  ip-172-31-45-76.us-west-2.compute.internal
+  System call: unlink(2) /dev/shm/vader_segment.ip-172-31-45-76.1003.6fae0001.1
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[ip-172-31-45-76.us-west-2.compute.internal:2935673] 1 more process has sent help message help-opal-shmem-mmap.txt / sys call fail
+[ip-172-31-45-76.us-west-2.compute.internal:2935673] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  ip-172-31-45-76.us-west-2.compute.internal
+  System call: unlink(2) /dev/shm/vader_segment.ip-172-31-45-76.1003.6f5f0001.0
+  Error:       No such file or directory (errno 2)
+--------------------------------------------------------------------------
+[ip-172-31-45-76.us-west-2.compute.internal:2935688] 1 more process has sent help message help-opal-shmem-mmap.txt / sys call fail
+[ip-172-31-45-76.us-west-2.compute.internal:2935688] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+	 PASSED Energy Test....
