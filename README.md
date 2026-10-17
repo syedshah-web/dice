@@ -133,7 +133,9 @@ MPICOMMAND="mpirun -np 8" ./runTests.sh      2>&1 | tee full.log    # adds Cr2 a
 Reference result on a 14-core Apple M-series machine: full suite 20/20 PASSED
 ([docs/macos_fulltests.log](docs/macos_fulltests.log)).
 Amazon Linux 2023 on EC2 (x86_64, 64 vCPU, dnf OpenMPI 4.1 + Boost 1.86): small suite 14/14 PASSED with
-0 errors at `-np 2` and `-np 8` ([docs/aws_al2023_small.log](docs/aws_al2023_small.log)).
+0 errors at `-np 2` and `-np 8` ([docs/aws_al2023_small.log](docs/aws_al2023_small.log)). Full suite on
+`m8a.16xlarge` (AMD EPYC 9R45, 64 cores), `mpirun -np 16`: 20/20 PASSED in 2m36s
+([docs/aws_m8a.16xlarge_fulltests.log](docs/aws_m8a.16xlarge_fulltests.log)).
 
 ## License
 

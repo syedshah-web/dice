@@ -60,6 +60,13 @@ The checker was right to flag it. The message comes from a real bug in Dice:
   4-byte `int` in `Davidson.cpp`). It would only matter on heterogeneous systems.
 - Sanitizer rebuild (1.3) not run: there was no crash to chase.
 
+## Full suite (Task 2 data point)
+
+`m8a.16xlarge`, `MPICOMMAND="mpirun -np 16" ./runTests.sh`: **20/20 PASSED, 0 errors, 2m36s wall**
+([aws_m8a.16xlarge_fulltests.log](aws_m8a.16xlarge_fulltests.log)). I used `-np 16` instead of one rank per
+core because `runTests.sh` exports `OMP_NUM_THREADS=4` at `o2_omp4_det`, and that stays set for the Cr2 and
+Mn-salen tests (16 × 4 = 64 cores). Keep this in mind for the c7i/c7g runs.
+
 ## Next
 
 Tasks 2–5 in [AWS_AGENT_TASKS.md](../AWS_AGENT_TASKS.md). Task 2 needs c7i/c7g instances. This host is
